@@ -74,6 +74,13 @@ function checkInsertChild(){
 		selectOrFocus('CHILD_FUNC_NAME');
 		return false;
 	}
+	
+	if (validation.checkNull($('#CHILD_FUNC_CODE').val())){
+		writeErrorMsg($("#CHILD_FUNC_CODE").attr("label")+"不能为空!");
+		selectOrFocus('CHILD_FUNC_CODE');
+		return false;
+	}
+	
 	if ($("#CHILD_FUNC_TYPE").val()!='funcmenu' && validation.checkNull($('#CHILD_MAIN_HANDLER').val())){
 		writeErrorMsg($("#CHILD_MAIN_HANDLER").attr("label")+"不能为空!");
 		selectOrFocus('CHILD_MAIN_HANDLER');
@@ -166,6 +173,10 @@ if ("funcnode".equals(pageBean.selectedValue("FUNC_TYPE"))){
 			</td>
 			</tr>
 			<tr>
+				<th width="100" nowrap>编码</th>
+				<td><input id="FUNC_CODE" label="编码" name="FUNC_CODE" type="text" value="<%=pageBean.inputValue("FUNC_CODE")%>" size="32" class="text" /></td>
+			</tr>
+			<tr>
 				<th width="100" nowrap>类型</th>
 				<td><%=pageBean.selectedText("FUNC_TYPE")%></td>
 			</tr>
@@ -204,6 +215,10 @@ if ("funcnode".equals(pageBean.selectedValue("FUNC_TYPE"))){
 	<th width="100" nowrap>名称</th>
 	<td><input id="CHILD_FUNC_NAME" label="名称" name="CHILD_FUNC_NAME" type="text" value="<%=pageBean.inputValue("CHILD_FUNC_NAME")%>" size="32" class="text" />
 </td>
+</tr>
+<tr>
+	<th width="100" nowrap>编码</th>
+	<td><input id="CHILD_FUNC_CODE" label="编码" name="CHILD_FUNC_CODE" type="text" value="<%=pageBean.inputValue("CHILD_FUNC_CODE")%>" size="32" class="text" /></td>
 </tr>
 <tr>
 	<th width="100" nowrap>类型</th>
